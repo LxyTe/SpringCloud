@@ -1,0 +1,19 @@
+server:
+  port: 1618
+
+eureka:
+  instance:
+    hostname: 127.0.0.1
+  client:
+  #是否将服务注册到eureka上
+    registerWithEureka: true
+    #检索服务
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://127.0.0.1:1616/eureka/
+
+spring:
+  application:
+    name: order
+   
+    
