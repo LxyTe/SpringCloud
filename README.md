@@ -25,6 +25,5 @@
     Ribbon:客户端负载均衡器
     Feign：基于ribbon和hystrix的声明式服务调用组件
     Zuul: 网关组件,提供智能路由、访问过滤等功能
-
-
-
+  
+   执行原理图  ![兔兔](https://github.com/LxyTe/SpringCloud/blob/master/sringCloud.png)
