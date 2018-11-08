@@ -20,6 +20,8 @@ public class OrderController {
     
 		 /**使用别名去注册中心获取服务
 		  * ---如果启动的时候报错找不懂映射的服务，那说明缺少 负载均衡器
+		  * 
+		  * springcloud可以用feign 和rest模板两种方式实现远程调用
 		  * */
 		 String url="http://hi/MM"; 
 		 return  restTemplate.getForObject(url, String.class);

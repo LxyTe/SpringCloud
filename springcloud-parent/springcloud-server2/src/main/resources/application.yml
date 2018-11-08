@@ -1,0 +1,17 @@
+server:
+  port: 1615
+
+eureka:
+  instance:
+    hostname: 127.0.0.1
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://127.0.0.1:1616/eureka/
+
+spring:
+  application:
+    name: eureka      ##集群的时候这个名字一定要相同 
+   
+    
