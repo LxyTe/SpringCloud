@@ -1,0 +1,10 @@
+###端口号
+server:
+  port: 8003
+###服务别名----服务注册到注册中心名称 
+spring:
+  application:
+    name: zk-order
+  cloud:
+    zookeeper:
+      connect-string: 127.0.0.1:2181

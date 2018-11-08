@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: springcloud-zookeeper
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Administrator
+Implementation-Vendor-Id: com.dist.te
+Build-Jdk: 1.8.0_151
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/springcloud-parent/springcloud-zookeeper
+Created-By: Maven Integration for Eclipse
+
