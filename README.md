@@ -167,7 +167,7 @@
 		</dependency>
    相关代码[查看](https://github.com/LxyTe/SpringCloud/blob/master/springcloud-parent/springcloud-zookeeper/src/main/java/com/dist/app/app.java)
   applicaiton.yml 配置和使用eureka时候的配置一样，就是ip端口改成zookeeper的就可以了
-  ####   
+  ####   使用consul做注册中心
    pom文件
        
 	 <dependency>
