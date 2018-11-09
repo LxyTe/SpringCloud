@@ -165,5 +165,39 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-zookeeper-discovery</artifactId>
 		</dependency>
-  
-  
+   相关代码[查看](https://github.com/LxyTe/SpringCloud/blob/master/springcloud-parent/springcloud-zookeeper/src/main/java/com/dist/app/app.java)
+  applicaiton.yml 配置和使用eureka时候的配置一样，就是ip端口改成zookeeper的就可以了
+  ####   
+   pom文件
+       
+	 <dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-consul-discovery</artifactId>
+  	</dependency>
+   其它的配置都和zookeeper的配置的一样
+     
+        @EnableDiscoveryClient 与@EnableEurekaClient区别
+	1，@EnableDiscoveryClient注解是基于spring-cloud-commons依赖，并且在classpath中实现； 适合于consul、zookeeper注册中心
+        2，@EnableEurekaClient注解是基于spring-cloud-netflix依赖，只能为eureka作用
+	public String getServiceUrl(String name) {
+		List<ServiceInstance> list = discoveryClient.getInstances(name);//可得到某注册中心里面的全部注册节点（此模板使用与consul和zookeeper）
+		if (list != null && !list.isEmpty()) {
+			return list.get(0).getUri().toString();
+		}
+		return null;
+	}
+   ##### eureka zookeeper consul 3个注册中心的区别 （具体的使用可根据业务选址，这里只做简单比较）
+      
+       分布式系统的三大原则 CAP理论(Consistency（一致性）、 Availability（可用性）、Partition tolerance（分区容错性），三者不可兼得)，所以
+       大都是从中选出两个实现
+       
+       Consul保证了CA
+	服务注册相比 Eureka 会稍慢一些。因为 Consul 的 raft 协议要求必须过半数的节点都写入成功才认为注册成功 Leader 挂掉时，重新选举期间整个 Consul 不可用。保证了强一致性但牺牲了可用性。
+
+	Eureka 保证高可用(A)和最终一致性(AP)：
+
+	服务注册相对要快，因为不需要等注册信息 replicate 到其他节点，也不保证注册信息是否 replicate 成功当数据出现不一致时，虽然A, B上的注册信息不完全相同，但每个Eureka节点依然能够正常对外提供服务，这会出现查询服务信息时如果请求A查不到，但请求B就能查到。如此保证了可用性但牺牲了一致性。
+
+      zookeeper（CP）
+       是zk会出现这样一种情况，当master节点因为网络故障与其他节点失去联系时，剩余节点会重新进行leader选举。问题在于，选举leader的时间太长，30 ~ 120s, 且选举期间整个zk集群都是不可用的，这就导致在选举期间注册服务瘫痪。在云部署的环境下，因网络问题使得zk集群失去master节点是较大概率会发生的事，虽然服务能够最终恢复，但是漫长的选举时间导致的注册长期不可用是不能容忍的
+	
