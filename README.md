@@ -157,7 +157,7 @@
     ####Eureka服务端在收到最后一次心跳之后等待的时间上限，单位为秒，超过则剔除（客户端告诉服务端按照此规则等待自己）
     lease-expiration-duration-in-seconds: 2    
     
-  #### 使用zookeeper做注册中心
+  ##### 使用zookeeper做注册中心
       springboot2.0以上集成zookeeper的时候要使用zookeeper3.5以上的版本才能兼容
         pom 文件
         	<!-- SpringBoot整合zookeeper -->
@@ -167,7 +167,7 @@
 		</dependency>
    相关代码[查看](https://github.com/LxyTe/SpringCloud/blob/master/springcloud-parent/springcloud-zookeeper/src/main/java/com/dist/app/app.java)
   applicaiton.yml 配置和使用eureka时候的配置一样，就是ip端口改成zookeeper的就可以了
-  ####   使用consul做注册中心
+  #####  使用consul做注册中心
    pom文件
        
 	 <dependency>
@@ -201,3 +201,4 @@
       zookeeper（CP）
        是zk会出现这样一种情况，当master节点因为网络故障与其他节点失去联系时，剩余节点会重新进行leader选举。问题在于，选举leader的时间太长，30 ~ 120s, 且选举期间整个zk集群都是不可用的，这就导致在选举期间注册服务瘫痪。在云部署的环境下，因网络问题使得zk集群失去master节点是较大概率会发生的事，虽然服务能够最终恢复，但是漫长的选举时间导致的注册长期不可用是不能容忍的
 	
+  ##### 负载均衡器(Ribbon负载均衡客户端)
