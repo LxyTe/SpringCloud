@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: springcloud-te-api-servie-order
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Administrator
+Implementation-Vendor-Id: com.dist.te
+Build-Jdk: 1.8.0_151
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/springcloud-te-parent/springcloud-te-api-servie/spr
+ ingcloud-te-api-servie-order
+Created-By: Maven Integration for Eclipse
+

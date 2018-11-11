@@ -1,0 +1,18 @@
+server:
+  port: 1619
+
+eureka:
+  instance:
+    hostname: 127.0.0.1
+  client:
+  #是否将自己注册到eureka上,作为消费者的时候要为true
+    registerWithEureka: true
+    #检索服务
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://127.0.0.1:1616/eureka/
+
+spring:
+  application:
+    name: order
+    
