@@ -222,4 +222,16 @@
    feign客户端调用是实际项目中的调用方法。实际项目中不推荐使用rest方式进行调用
    [具体区别比较](https://www.cnblogs.com/EasonJim/p/8321355.html)
    
+   具体feign客户端的使用方式[查看项目](https://github.com/LxyTe/SpringCloud/tree/master/springcloud-te-parent)
+   
+   #### 上面使用maven聚合项目的形式搭建了一个使用feign客户端调用服务的例子
+     
+        ### 设置feign客户端超时 时间,springcloud默认支持ribbon是打开的
+     ribbon:
+        ##建立连接所用时间
+      ReadTimeout: 5000 
+            ## 建立连接后从服务端读取资源所用最大时间 
+         ConnectTimeout: 5000
+   
+   
    
