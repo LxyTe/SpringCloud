@@ -217,3 +217,8 @@
   原理图![x](https://github.com/LxyTe/SpringCloud/blob/master/Ribbon%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%8E%9F%E7%90%86.png)
    rabbion实现原理[查看代码](https://github.com/LxyTe/SpringCloud/blob/master/springcloud-parent/springcloud-order/src/main/java/com/dist/app/controller/RabbonController.java)
    
+   ##### 使用feign客户端口
+   
+   feign客户端调用是实际项目中的调用方法。实际项目中不推荐使用rest方式进行调用
+   
+   
