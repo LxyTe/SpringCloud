@@ -15,4 +15,31 @@ eureka:
 spring:
   application:
     name: order
+  
+  ### 设置feign客户端超时 时间,springcloud默认支持ribbon是打开的
+ribbon:
+    ##建立连接所用时间
+ ReadTimeout: 5000 
+   ## 建立连接后从服务端读取资源所用最大时间 
+ ConnectTimeout: 5000
+ 
+ ##Hystrix断路器
+ feign: 
+  hystrix:
+  enabled: true
+ 
+#### hystrix禁止服务超时时间，就是在5s内没有成功响应就走降级方法
+#hystrix:  
+# command: 
+#   default: 
+#      execution: 
+#       timeout: 5
+
+### 关闭禁止服务超时时间，测试所用。这样就不会再走降级方法了
+hystrix:  
+ command: 
+   default: 
+      execution: 
+       timeout: 
+        enabled: false
     

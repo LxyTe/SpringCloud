@@ -14,4 +14,7 @@ public interface IMemberService {
 
 	@RequestMapping("/getMember")
 	public UserEntity getMember( );
+
+	@RequestMapping("/getUserInfo")
+     public String getUserInfo();
 }

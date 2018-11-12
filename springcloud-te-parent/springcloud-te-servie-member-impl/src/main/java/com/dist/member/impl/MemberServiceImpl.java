@@ -21,4 +21,15 @@ public class MemberServiceImpl implements IMemberService {
 		return userEntity;
 	}
 
+	@Override
+	public String getUserInfo() {
+		// TODO Auto-generated method stub
+		try {			
+			Thread.sleep(1500);//1.5秒延迟
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "true,延迟之后调用成功 ";
+	}
+
 }
