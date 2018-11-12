@@ -264,3 +264,12 @@
 	  当并发量高的接口到达峰值的时候还是使用服务熔断解决，其它接口由于使用了不同的线程池，所以还是可以正常访问的
 	  
  关于@HystrixCommand 接口的使用(此接口很强大，默认实现了 服务隔离，降级，熔断)
+   pom依赖
+   
+        <!-- hystrix断路器 -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+		</dependency>
+   
+   [查看代码详细使用](https://github.com/LxyTe/SpringCloud/blob/master/springcloud-te-parent/springcloud-te-servie-order-impl/src/main/java/com/dist/order/orderServiceImpl.java)
