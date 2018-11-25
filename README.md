@@ -273,3 +273,25 @@
 		</dependency>
    
    [查看代码详细使用](https://github.com/LxyTe/SpringCloud/blob/master/springcloud-te-parent/springcloud-te-servie-order-impl/src/main/java/com/dist/order/orderServiceImpl.java)
+   #### 分布式配置中心(SpringCloud Config)
+    使用分布式配置中心最大的好处就是在生产环境中，如有某个配置文件需要修改，可以直接在配置中心中修改，而不用在项目xml文件中，进行繁琐的修改。
+    可以实现后台统一的配置管理。(可以实现不重启服务器，达到修改配置文件的效果)
+    
+   分布式配置中心框架
+     
+      阿波罗 (后续查看)     携程的分布式配置中心，有图形界面可管理配置文件信息  (配置的信息在DB中)
+      xdiamond    也是一个分布式配置中心，有图形界面可管理配置文件信息 (配置的信息在DB中)
+      springCloud Config 没有后台可管理，配置文件在版本控制器中(git/svn)
+      Zookeeper   也可以实现分布式配置中心，持久节点+时间通知(以后有时间了可以学习一下
+     
+     1.1 原理
+     先提交配置文件信息到Git等版本控制服务器上面，
+     ConfigServer服务器从git服务器上面读取配置文件信息保存(相当于缓存，避免Client端直接连git服务器)
+     ConfigClient从 ConfigServer服务器上面获取配置信息
+     1.2分布式配置中心需要组件！
+     1.2.1 web管理系统   后台可以使用图形化界面对配置进行CRUD等操作   (springCloud Config没有web页面)
+     1.2.2 存放分布式配置文件服务器  (持久存储服务器,相当于mysql，oracle等)    (springCloud Config 使用版本控制器存放，这里使用git)
+     1.2.3 ConfigServer 缓存配置文件服务器  (临时缓存存放 ， 相当于NOSQL) 
+     1.2.4 ConfigClient 读取上面的配置文件信息
+    
+   
