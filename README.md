@@ -399,4 +399,6 @@
 	</dependency>
 	@EnableSwagger2Doc 并且在每个服务的启动类上加入此注解
 	application.yml配置 扫描的包swagger: base-package: com.dist.member.impl
+ 
+   swagger详细代码[查看](https://github.com/LxyTe/SpringCloud/blob/master/springcloud-zuul/src/main/java/com/example/demo/swaggerConfig.java)
 	
