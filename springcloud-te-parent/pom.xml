@@ -42,8 +42,24 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
 		</dependency>
-
+     <!-- 整合swagger-boot -->
      <dependency>
+     <groupId>com.spring4all</groupId>
+     <artifactId>swagger-spring-boot-starter</artifactId>
+     <version>1.7.0.RELEASE</version>
+     </dependency>
+<dependency>
+<groupId>com.google.guava</groupId>
+<artifactId>guava</artifactId>
+<version>22.0</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/io.swagger/swagger-models -->
+<dependency>
+    <groupId>io.swagger</groupId>
+    <artifactId>swagger-models</artifactId>
+    <version>1.5.21</version>
+</dependency>
+     <dependency>   
 <groupId>org.springframework.boot</groupId>
 <artifactId>spring-boot-starter-web</artifactId>
      </dependency>
@@ -79,5 +95,6 @@
     	<module>springcloud-te-api-servie</module>
     	<module>springcloud-te-servie-order-impl</module>
     	<module>springcloud-te-servie-member-impl</module>
+    	<module>springcloud-te-server</module>
     </modules>
 </project>

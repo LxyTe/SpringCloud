@@ -28,18 +28,20 @@ ribbon:
   hystrix:
   enabled: true
  
-#### hystrix禁止服务超时时间，就是在5s内没有成功响应就走降级方法
-#hystrix:  
-# command: 
-#   default: 
-#      execution: 
-#       timeout: 5
-
-### 关闭禁止服务超时时间，测试所用。这样就不会再走降级方法了
+#### hystrix禁止服务超时时间，就是在5s内没有成功响应就走降级方法(默认时间为1s)
 hystrix:  
  command: 
    default: 
       execution: 
-       timeout: 
-        enabled: false
+       timeout: 1
+
+### 关闭禁止服务超时时间，测试所用。这样就不会再走降级方法了
+#hystrix:  
+ #command: 
+  # default: 
+   #   execution: 
+    #   timeout: 
+     #   enabled: false
+swagger:
+  base-package: com.dist.order
     
