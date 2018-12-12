@@ -319,3 +319,27 @@
        Zuul 适合微服务网关。java底层编写。 
        
        Nginx+Zuul一起使用的时候，Nginx做服务器负载均衡，然后使用Zuul做网关拦截。
+       pom依赖
+         <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+         </dependency>
+
+   相关application.yml
+   [!查看相关配置](https://github.com/LxyTe/SpringCloud/blob/master/springcloud-zuul/src/main/resources/application.yml)
+    
+    启动类相关配置
+    @SpringBootApplication
+    @EnableZuulProxy   //开启网关
+    @EnableEurekaClient   //
+    2.使用zuul搭建过滤器
+     zuul搭建的过滤器和filter过滤器的作用是一致的，但是不同点在于 zuul的过滤器可以过滤整个微服务群，而filter只能过滤单个项目，总体来说zuul的功能更加强大.
+     @Bean  //要在配置启动类中加上bean，要不然无法实现过滤效果
+	public TokenFilter tokenFilter(){
+		return new TokenFilter();
+	}
+     
+  [!查看相关代码](https://github.com/LxyTe/SpringCloud/blob/master/springcloud-zuul/src/main/java/com/example/demo/filter/TokenFilter.java)
+  
+    3.网关集群(搭建高可用网关)
+    
