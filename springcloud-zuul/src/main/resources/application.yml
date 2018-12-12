@@ -1,0 +1,29 @@
+
+### 网关服务注册
+eureka:
+    client:
+      serviceUrl:
+       defaultZone: http://127.0.0.1:1616/eureka/
+   
+### api网关端口号
+server:
+   port: 81
+  
+ ### 网关名称
+spring:
+     application:
+        name: service-zuul9
+zuul:
+  routes:
+  ### 转发规则
+     api-a:
+     ###当客户端发送请求127.0.0.1:80/api-member开头的时候，都会将服务转发到下面的地址
+        path: /api-member/**
+     ### 服务别名，zuul网关默认整合ribbon 自动实现轮询负载均衡
+        serviceId: member
+     api-b:
+        path: /api-order/**
+        
+        serviceId: order
+        
+         
