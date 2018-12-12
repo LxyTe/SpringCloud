@@ -361,3 +361,42 @@
         }
     }
  按照上面的配置我们访问服务地址为    http://te.mm.com/api-order/orderToMember   ,te.mm.com为nginx 的定义名字，api-order为网关协议名字，orderToMember为具体的服务名字
+  #### 集成swagger
+  pom依赖
+    
+           <!--整合swagger -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.6.1</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.6.1</version>
+		</dependency>
+     代码的配置方式也和以前一样。。。。。
+    
+   使用zuul管理接口文档,(当有多个微服务项目的时候，使用网关管理比较方便)
+   pom文件 可以继续用上面的，也可以用spring boot依赖的
+     
+     <!-- 整合swagger-boot -->
+         <dependency>
+     		 <groupId>com.spring4all</groupId>
+    		 <artifactId>swagger-spring-boot-starter</artifactId>
+    		 <version>1.7.0.RELEASE</version>
+        </dependency>
+ 	<dependency>
+		<groupId>com.google.guava</groupId>
+		<artifactId>guava</artifactId>
+		<version>22.0</version>
+	</dependency>
+	<!-- https://mvnrepository.com/artifact/io.swagger/swagger-models -->
+	<dependency>
+ 	  	<groupId>io.swagger</groupId>
+	  	<artifactId>swagger-models</artifactId>
+   	 	<version>1.5.21</version>
+	</dependency>
+	@EnableSwagger2Doc 并且在每个服务的启动类上加入此注解
+	application.yml配置 扫描的包swagger: base-package: com.dist.member.impl
+	
