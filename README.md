@@ -342,4 +342,22 @@
   [!查看相关代码](https://github.com/LxyTe/SpringCloud/blob/master/springcloud-zuul/src/main/java/com/example/demo/filter/TokenFilter.java)
   
     3.网关集群(搭建高可用网关)
+   ![兔兔](https://github.com/LxyTe/SpringCloud/blob/master/zuul%E9%9B%86%E7%BE%A4.png)
+    具体实现需要下载nginx 然后在nginx.conf中配置一下内容即可
     
+     ####上游服务器 集群 默认网关配置,轮询机制
+    upstream  backServer{
+    server  127.0.0.1:81;表示监控的两个网关端口，具体情况可自己修改
+    server  127.0.0.1:82;
+    }
+
+    server {
+        listen       80;//自己启动端口
+        server_name  te.mm.com;  这个名字可以为访问地址的名字，也可是localhost(默认的)
+        location / {
+           ### 指定上游服务器负载均衡服务器
+	   proxy_pass  http://backServer/;
+	   index   index.html index.htm;
+        }
+    }
+ 按照上面的配置我们访问服务地址为    http://te.mm.com/api-order/orderToMember   ,te.mm.com为nginx 的定义名字，api-order为网关协议名字，orderToMember为具体的服务名字
