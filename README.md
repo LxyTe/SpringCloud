@@ -402,3 +402,4 @@
  
    swagger详细代码[查看](https://github.com/LxyTe/SpringCloud/blob/master/springcloud-zuul/src/main/java/com/example/demo/swaggerConfig.java)
 	
+  #### 消息总线等学完mq之后
