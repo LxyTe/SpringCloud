@@ -192,7 +192,7 @@
        分布式系统的三大原则 CAP理论(Consistency（一致性）、 Availability（可用性）、Partition tolerance（分区容错性），三者不可兼得)，所以
        大都是从中选出两个实现
        
-       Consul保证了CA
+       Consul保证了CP 肯定要保证P呀，要不然一个网络波动就玩完
 	服务注册相比 Eureka 会稍慢一些。因为 Consul 的 raft 协议要求必须过半数的节点都写入成功才认为注册成功 Leader 挂掉时，重新选举期间整个 Consul 不可用。保证了强一致性但牺牲了可用性。
 
 	Eureka 保证高可用(A)和最终一致性(AP)：
